@@ -5,15 +5,12 @@ class Solution(object):
         :rtype: int
         """
         average=[]
-        while nums:
-            minelem= min(nums)
-            maxele= max(nums)
-            avg=(minelem+maxele)/2.0
-            nums.remove(minelem)
-            nums.remove(maxele)
-            
-            if avg in average:
-                continue
-            else:
+        for i in range(len(nums)//2):
+            maxi=max(nums)
+            mini=min(nums)
+            avg=float(maxi+mini)/2
+            if avg not in average:
                 average.append(avg)
+            nums.remove(maxi)
+            nums.remove(mini)
         return len(average)
